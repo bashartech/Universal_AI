@@ -1,0 +1,31 @@
+{
+  "business_name": "Demo Business",
+  "industry": "Real Estate",
+  "services": [
+    "Buy Property",
+    "Sell Property",
+    "Rent Property",
+    "Property Management",
+    "Investment Consulting"
+  ],
+  "pricing": "Starting from PKR 5,000 - Contact us for detailed pricing",
+  "business_hours": "Monday - Saturday: 9:00 AM - 6:00 PM",
+  "contact_email": "info@demobusiness.com",
+  "contact_phone": "+92-300-1234567",
+  "quick_replies": [
+    "View Services",
+    "Check Pricing",
+    "Book Appointment",
+    "Contact Support"
+  ],
+  "welcome_message": "Hi! I'm your AI Assistant. How can I help you today?",
+  "theme": {
+    "primaryColor": "#8b5cf6",
+    "position": "bottom-right"
+  },
+  "features": {
+    "leadCapture": true,
+    "humanEscalation": true,
+    "emailNotifications": true
+  }
+}

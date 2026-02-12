@@ -1,0 +1,32 @@
+{
+  "headers": [
+    {
+      "source": "/medidesk.js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!medidesk\\.js|assets|widget-demo\\.html|example-hospital-website\\.html|embed-demo\\.html).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

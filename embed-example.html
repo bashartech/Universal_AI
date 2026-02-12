@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embed Example - Universal Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    .code-block {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+    .note {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Universal Chatbot - Embed Instructions</h1>
+
+  <h2>Step 1: Copy the Embed Code</h2>
+  <p>Add this code snippet before the closing <code>&lt;/body&gt;</code> tag of your website:</p>
+
+  <div class="code-block">
+    <code>
+&lt;!-- Universal Chatbot Widget --&gt;<br>
+&lt;script src="https://your-domain.com/chatbot.js"&gt;&lt;/script&gt;<br>
+&lt;script&gt;<br>
+&nbsp;&nbsp;// Optional: Initialize with custom configuration<br>
+&nbsp;&nbsp;UniversalChatbot.init({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgetId: 'your-business-id',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;position: 'bottom-right', // or 'bottom-left'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;theme: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;primaryColor: '#3B82F6'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;});<br>
+&lt;/script&gt;
+    </code>
+  </div>
+
+  <div class="note">
+    <strong>Note:</strong> Replace <code>https://your-domain.com/chatbot.js</code> with the actual URL where you host the chatbot script.
+  </div>
+
+  <h2>Step 2: Customize Your Configuration</h2>
+  <p>Edit the <code>businessConfig.json</code> file to match your business details:</p>
+
+  <div class="code-block">
+    <code>
+{<br>
+&nbsp;&nbsp;"business_name": "Your Business Name",<br>
+&nbsp;&nbsp;"industry": "Your Industry",<br>
+&nbsp;&nbsp;"services": ["Service 1", "Service 2", "Service 3"],<br>
+&nbsp;&nbsp;"pricing": "Your pricing information",<br>
+&nbsp;&nbsp;"business_hours": "Your business hours",<br>
+&nbsp;&nbsp;"contact_email": "your@email.com",<br>
+&nbsp;&nbsp;"contact_phone": "+XX-XXX-XXXXXXX",<br>
+&nbsp;&nbsp;"quick_replies": ["Option 1", "Option 2", "Option 3"]<br>
+}
+    </code>
+  </div>
+
+  <h2>Step 3: Test the Widget</h2>
+  <p>The chatbot widget should now appear on your website. Click the chat button in the bottom right corner to test it!</p>
+
+  <h2>Platform-Specific Instructions</h2>
+
+  <h3>WordPress</h3>
+  <p>1. Go to Appearance → Theme Editor<br>
+  2. Edit footer.php<br>
+  3. Paste the embed code before <code>&lt;/body&gt;</code></p>
+
+  <h3>Wix</h3>
+  <p>1. Go to Settings → Custom Code<br>
+  2. Click "+ Add Custom Code"<br>
+  3. Paste the embed code<br>
+  4. Set to load on "All Pages" and "Body - end"</p>
+
+  <h3>Shopify</h3>
+  <p>1. Go to Online Store → Themes<br>
+  2. Click "Actions" → "Edit code"<br>
+  3. Edit theme.liquid<br>
+  4. Paste the embed code before <code>&lt;/body&gt;</code></p>
+
+  <h3>Webflow</h3>
+  <p>1. Go to Project Settings → Custom Code<br>
+  2. Paste the embed code in "Footer Code"<br>
+  3. Publish your site</p>
+
+  <h2>Admin Panel Access</h2>
+  <p>Access your admin panel at: <code>https://your-domain.com/admin</code></p>
+  <p>Default credentials:<br>
+  Username: <strong>admin</strong><br>
+  Password: <strong>demo123</strong></p>
+
+  <div class="note">
+    <strong>Security Note:</strong> Change the default admin credentials in production!
+  </div>
+
+  <!-- Demo Widget -->
+  <script type="module" src="/src/embed/widget.tsx"></script>
+</body>
+</html>

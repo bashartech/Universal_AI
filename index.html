@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universal AI Chatbot - Enterprise Solution</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Animated Background */
+      .bg-gradient {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        z-index: -2;
+      }
+
+      .bg-pattern {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        z-index: -1;
+      }
+
+      /* Header */
+      .header {
+        padding: 1.5rem 2rem;
+        background: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-button {
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+      }
+
+      /* Hero Section */
+      .hero {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 6rem 2rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: #cbd5e1;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
+
+      .hero-badges {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .badge {
+        padding: 0.5rem 1rem;
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 20px;
+        font-size: 0.875rem;
+        color: #a78bfa;
+      }
+
+      /* Features Grid */
+      .features {
+        max-width: 1400px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(139, 92, 246, 0.5);
+        box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+      }
+
+      .feature-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(167, 139, 250, 0.2));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      .feature-card p {
+        color: #94a3b8;
+        line-height: 1.7;
+      }
+
+      /* Stats Section */
+      .stats {
+        max-width: 1400px;
+        margin: 6rem auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 12px;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-label {
+        color: #94a3b8;
+        margin-top: 0.5rem;
+      }
+
+      /* CTA Section */
+      .cta {
+        max-width: 1400px;
+        margin: 6rem auto;
+        padding: 4rem 2rem;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(167, 139, 250, 0.1));
+        border-radius: 24px;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      .cta p {
+        font-size: 1.125rem;
+        color: #cbd5e1;
+        margin-bottom: 2rem;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+      }
+
+      .btn-secondary {
+        padding: 1rem 2rem;
+        background: transparent;
+        color: #a78bfa;
+        border: 2px solid #8b5cf6;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(139, 92, 246, 0.1);
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      .footer {
+        max-width: 1400px;
+        margin: 4rem auto 2rem;
+        padding: 2rem;
+        text-align: center;
+        color: #64748b;
+        border-top: 1px solid rgba(139, 92, 246, 0.2);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-gradient"></div>
+    <div class="bg-pattern"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <span>Universal AI</span>
+        </div>
+        <a href="/admin.html" class="nav-button">Admin Panel</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Enterprise AI Chatbot Solution</h1>
+      <p>
+        Transform customer engagement with intelligent AI-powered conversations.
+        Capture leads, automate support, and scale your business effortlessly.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">✨ AI-Powered</span>
+        <span class="badge">🚀 Easy Integration</span>
+        <span class="badge">📊 Real-time Analytics</span>
+        <span class="badge">🔒 Enterprise Security</span>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Uptime</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Support</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10k+</div>
+        <div class="stat-label">Conversations</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">95%</div>
+        <div class="stat-label">Satisfaction</div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>Advanced AI Engine</h3>
+        <p>
+          Powered by Mistral AI for intelligent, context-aware responses.
+          Understands intent and provides accurate answers instantly.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Lead Generation</h3>
+        <p>
+          Automatically capture and qualify leads through natural conversations.
+          Seamlessly integrate with your CRM and sales pipeline.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Human Handoff</h3>
+        <p>
+          Smart escalation to human agents when needed.
+          Maintains conversation context for seamless transitions.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📧</div>
+        <h3>Email Notifications</h3>
+        <p>
+          Real-time alerts for new leads and escalations.
+          Never miss an opportunity to engage with customers.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>
+          Optimized for performance with instant responses.
+          Handles thousands of concurrent conversations effortlessly.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>Fully Customizable</h3>
+        <p>
+          Match your brand with custom themes and configurations.
+          JSON-based setup for quick deployment across industries.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Ready to Transform Your Customer Experience?</h2>
+      <p>Start engaging with your customers through intelligent AI conversations today.</p>
+      <div class="cta-buttons">
+        <button class="btn-primary" onclick="document.querySelector('#root').scrollIntoView({behavior: 'smooth'})">
+          Try Live Demo
+        </button>
+        <a href="/admin.html" class="btn-secondary">View Dashboard</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2024 Universal AI Chatbot. Built with React, TypeScript & Mistral AI.</p>
+      <p style="margin-top: 0.5rem;">Enterprise-grade solution for modern businesses.</p>
+    </footer>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
