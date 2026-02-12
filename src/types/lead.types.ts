@@ -26,7 +26,7 @@ export interface LeadFormData {
 export interface Escalation {
   id: string;
   sessionId: string;
-  conversationTranscript: Message[];
+  conversationTranscript: any
   userContact?: {
     name?: string;
     email?: string;

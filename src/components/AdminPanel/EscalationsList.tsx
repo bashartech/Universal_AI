@@ -162,7 +162,7 @@ export const EscalationsList: React.FC = () => {
                     <h3 className="text-sm font-semibold text-white mb-3">
                       Conversation Transcript
                     </h3>
-                    {selectedEsc.conversationTranscript.map((msg) => (
+                    {selectedEsc.conversationTranscript.map((msg:any) => (
                       <div
                         key={msg.id}
                         className={`mb-4 flex ${

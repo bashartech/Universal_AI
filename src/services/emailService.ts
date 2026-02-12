@@ -50,7 +50,7 @@ class EmailService {
   async sendEscalationAlert(escalation: Escalation): Promise<void> {
     try {
       const conversationText = escalation.conversationTranscript
-        .map(msg => `${msg.sender.toUpperCase()}: ${msg.content}`)
+        .map((msg: any) => `${msg.sender.toUpperCase()}: ${msg.content}`)
         .join('\n');
 
       const templateParams = {

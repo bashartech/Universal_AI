@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
-import { Message, ChatSession, QuickReply } from '../types/chat.types';
+import { Message, ChatSession } from '../types/chat.types';
 import { Intent } from '../types/config.types';
 import { APP_CONSTANTS } from '../utils/constants';
 import { mistralService } from '../services/mistralService';
@@ -111,7 +111,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
 
     try {
       // Detect intent
-      const { intent, confidence: intentConfidence } = await mistralService.detectIntent(content);
+      const { intent } = await mistralService.detectIntent(content);
 
       // Generate AI response
       const { response, confidence } = await mistralService.generateResponse(

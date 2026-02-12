@@ -86,7 +86,7 @@ class FirebaseService {
         ...escalation,
         createdAt: Timestamp.fromDate(escalation.createdAt),
         resolvedAt: escalation.resolvedAt ? Timestamp.fromDate(escalation.resolvedAt) : null,
-        conversationTranscript: escalation.conversationTranscript.map(msg => ({
+        conversationTranscript: escalation.conversationTranscript.map((msg: any) => ({
           ...msg,
           timestamp: Timestamp.fromDate(msg.timestamp)
         }))

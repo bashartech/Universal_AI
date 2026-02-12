@@ -29,7 +29,7 @@ description: "Complete Mistral AI integration setup for building conversational 
 - Click "Create new key"
 - Name your key (e.g., "MediDesk Production")
 - Copy and save your API key securely
-- Example: `lts2pzXQNn7nI8BSXi54z8cmlTr68GdJ`
+- Example: `lts2pz*******J`
 - **Important**: This key is shown only once - save it immediately
 
 **Step 1.3: Choose Model**
