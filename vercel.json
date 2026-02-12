@@ -1,7 +1,9 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "headers": [
     {
-      "source": "/medidesk.js",
+      "source": "/chatbot.js",
       "headers": [
         {
           "key": "Content-Type",
@@ -10,6 +12,10 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
         }
       ]
     },
@@ -21,11 +27,36 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/admin/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!medidesk\\.js|assets|widget-demo\\.html|example-hospital-website\\.html|embed-demo\\.html).*)",
+      "source": "/admin",
+      "destination": "/admin/admin.html"
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": "/admin/admin.html"
+    },
+    {
+      "source": "/demo",
+      "destination": "/demo.html"
+    },
+    {
+      "source": "/embed-example",
+      "destination": "/embed-example.html"
+    },
+    {
+      "source": "/",
       "destination": "/index.html"
     }
   ]

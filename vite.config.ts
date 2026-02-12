@@ -8,4 +8,14 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        demo: './demo.html',
+        embed: './embed-example.html',
+      },
+    },
+  },
 })

@@ -7,7 +7,7 @@
     "dev": "vite --open /demo.html",
     "dev:admin": "vite --open /admin.html",
     "dev:widget": "vite --config vite.config.widget.ts",
-    "build": "npm run build:widget && npm run build:admin",
+    "build": "tsc -b && vite build && vite build --config vite.config.widget.ts && vite build --config vite.config.admin.ts",
     "build:widget": "tsc -b && vite build --config vite.config.widget.ts",
     "build:admin": "tsc -b && vite build --config vite.config.admin.ts",
     "lint": "eslint .",

@@ -11,7 +11,8 @@ export default defineConfig({
       fileName: 'chatbot',
       formats: ['iife'],
     },
-    outDir: 'dist/widget',
+    outDir: 'dist',
+    emptyOutDir: false,
     rollupOptions: {
       output: {
         inlineDynamicImports: true,

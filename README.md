@@ -2,6 +2,12 @@
 
 A fully functional, embeddable AI chatbot solution that can be deployed on any website or digital platform. Built with React, TypeScript, Tailwind CSS, Firebase, and Mistral AI.
 
+## 🌐 Live Demo
+
+**[View Live Demo](https://universal-ai-roan.vercel.app/)**
+
+Experience the chatbot in action with a fully functional demo deployment.
+
 ## 🚀 Features
 
 - **AI-Powered Conversations**: Uses Mistral AI for intelligent, context-aware responses
@@ -87,6 +93,12 @@ npm run build:widget
 2. Upload `dist/widget/chatbot.js` to your CDN or hosting
 
 3. Add to any website:
+```html
+<!-- Universal AI Chatbot - Embed Code -->
+<script src="https://universal-ai-roan.vercel.app/chatbot.js"></script>
+```
+
+**For custom deployment**, replace the URL with your own hosting:
 ```html
 <script src="https://your-domain.com/chatbot.js"></script>
 ```
